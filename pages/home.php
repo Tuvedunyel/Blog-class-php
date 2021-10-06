@@ -1,12 +1,22 @@
 <?php
 
-$db = "mysql:host=localhost;dbname=blog";
-$user = "root";
-$password = "";
+$db = new Database('blog');
 
-$pdo = new PDO($db, $user, $password);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// $db = "mysql:host=localhost;dbname=blog";
+// $user = "root";
+// $password = "";
 
-$count = $pdo->exec('INSERT INTO articles SET titre="Mon titre", date="' . date('Y-m-d H:i:s') .'"');
+// $pdo = new PDO($db, $user, $password);
+// $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-var_dump($count);
+// $res = $pdo->query('SELECT * FROM articles ');
+
+// $datas = $res->fetchAll(PDO::FETCH_OBJ);
+
+$datas = $db->query('SELECT * FROM articles');
+
+var_dump($datas);
+
+// $count = $pdo->exec('INSERT INTO articles SET titre="Mon titre", date="' . date('Y-m-d H:i:s') .'"');
+
+// var_dump($count);
