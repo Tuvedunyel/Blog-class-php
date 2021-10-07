@@ -16,10 +16,13 @@ class DataBase {
     }
 
     private function getPDO() {
-        $pdo = new PDO("mysql:host=localhost;dbname=blog", $this->db_user, $this->db_pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->pdo = $pdo;
-        return $pdo;
+        if($this->pdo === null) {
+            $pdo = new PDO("mysql:host=localhost;dbname=blog", $this->db_user, $this->db_pass);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = $pdo;
+
+        }
+        return $this->pdo;
     }
 
     public function query($statement) {
