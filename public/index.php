@@ -18,7 +18,7 @@
 
     if ($p === 'home') {
         require './../pages/home.php';
-    } elseif ($p === 'single') {
+    } elseif ($p === 'article') {
         require './../pages/single.php';
     }
 

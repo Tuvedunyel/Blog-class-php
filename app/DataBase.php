@@ -30,4 +30,12 @@ class DataBase {
        $datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
        return $datas;
     }
+
+    public function prepare($statement, $attributes, $class_name) {
+
+        $req = $this->getPDO()->prepare($statement);
+        $req->execute($attributes);
+        $datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
+        return $datas;
+    }
 }
