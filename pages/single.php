@@ -1,7 +1,6 @@
 <?php 
 
-$post = $db->prepare('SELECT * FROM articles WHERE id = ?', [$_GET['id']], 'Article');
-var_dump($post);
+$post = $db->prepare('SELECT * FROM articles WHERE id = ?', [$_GET['id']], 'Article', true);
 ?>
 
 <h1><?= $post->titre; ?></h1>
