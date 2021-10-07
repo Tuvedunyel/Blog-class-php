@@ -25,10 +25,15 @@ class DataBase {
         return $this->pdo;
     }
 
-    public function query($statement, $class_name) {
-       $req = $this->getPdo()->query($statement);
-       $datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
-       return $datas;
+    public function query($statement, $class_name, $one = false) {
+       $req = $this->getPDO()->query($statement);
+       $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+       if ($one) {
+           $datas = $req->fetch();
+        } else {
+            $datas = $req->fetchAll();
+        }
+        return $datas;
     }
 
     public function prepare($statement, $attributes, $class_name, $one = false) {

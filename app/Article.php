@@ -3,11 +3,10 @@
 class Article extends Table {
 
     public static function getLast() {
-       return App::getDatabase()->query("
+       return self::query("
        SELECT articles.id, articles.titre, articles.contenu, categories.titre as category 
        FROM articles LEFT JOIN categories 
-       ON category_id = categories.id",
-        __CLASS__);
+       ON category_id = categories.id");
     }
 
     public function getUrl() {
@@ -21,10 +20,9 @@ class Article extends Table {
     }
 
     public static function lastByCategory($category_id) {
-        return App::getDatabase()->prepare("
+        return self::query("
        SELECT articles.id, articles.titre, articles.contenu, categories.titre as category 
        FROM articles LEFT JOIN categories 
-       ON category_id = categories.id WHERE category_id = ?", [$category_id],
-        __CLASS__);
+       ON category_id=categories.id WHERE category_id=?", [$category_id]);
     }
 }
