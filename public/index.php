@@ -15,6 +15,8 @@
         require './../pages/home.php';
     } elseif ($p === 'article') {
         require './../pages/single.php';
+    } elseif ($p === 'categories') {
+        require ('./../pages/category.php');
     }
 
     $content= ob_get_clean();

@@ -14,7 +14,7 @@
         <ul>
             <?php foreach (Categories::all() as $category) : ?>
                 <li>
-                    <a href="<?= $category->url; ?>"><?= $category->title ?></a>
+                    <a href="<?= $category->url; ?>"><?= $category->titre ?></a>
                 </li>
             <?php endforeach ?>
         </ul>

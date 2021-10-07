@@ -19,4 +19,12 @@ class Article extends Table {
         $html .= '<p><a href="' . $this->getUrl() . '">Voir la suite</a></p>';
         return $html;
     }
+
+    public static function lastByCategory($category_id) {
+        return App::getDatabase()->prepare("
+       SELECT articles.id, articles.titre, articles.contenu, categories.titre as category 
+       FROM articles LEFT JOIN categories 
+       ON category_id = categories.id WHERE category_id = ?", [$category_id],
+        __CLASS__);
+    }
 }
