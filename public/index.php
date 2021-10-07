@@ -9,11 +9,6 @@
         $p = 'home';
     }
 
-    //Initialisation des objets
-
-    $db = new Database('blog');
-
-
     ob_start();
 
     if ($p === 'home') {

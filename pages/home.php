@@ -1,6 +1,6 @@
 <ul>
 <?php
-    foreach($db->query('SELECT * FROM articles', 'Article') as $post) : 
+    foreach(Article::getLast() as $post) :
 ?>
     <h2>
         <a href="<?= $post->url; ?>"><?= $post->titre; ?></a>
