@@ -1,11 +1,14 @@
+<ul>
 <?php
+    foreach($db->query('SELECT * FROM articles', 'Article') as $post) : 
+?>
+        <?php var_dump($post); ?>
+    <h2>
+        <a href="<?php $post->url; ?>"><?= $post->titre; ?></a>
+    </h2>
 
-$db = new Database('blog');
+    <p><?php $post->extrait; ?></p>
 
-$datas = $db->query('SELECT * FROM articles');
+<?php endforeach; ?>
+</ul>
 
-var_dump($datas);
-
-// $count = $pdo->exec('INSERT INTO articles SET titre="Mon titre", date="' . date('Y-m-d H:i:s') .'"');
-
-// var_dump($count);
