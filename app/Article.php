@@ -1,15 +1,13 @@
 <?php 
 
-class Article {
+class Article extends Table {
 
     public static function getLast() {
-       return App::getDatabase()->query('SELECT * FROM articles', __CLASS__);
-    }
-
-    public function __get($key) {
-        $method = 'get' . ucfirst($key);
-        $this->$key = $this->$method();
-        return $this->$key;
+       return App::getDatabase()->query("
+       SELECT articles.id, articles.titre, articles.contenu, categories.titre as category 
+       FROM articles LEFT JOIN categories 
+       ON category_id = categories.id",
+        __CLASS__);
     }
 
     public function getUrl() {

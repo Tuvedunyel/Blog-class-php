@@ -17,7 +17,7 @@ class DataBase {
 
     private function getPDO() {
         if($this->pdo === null) {
-            $pdo = new PDO("mysql:host=localhost;dbname=blog", $this->db_user, $this->db_pass);
+            $pdo = new PDO("mysql:host=". $this->db_host .";dbname=". $this->db_name ."", $this->db_user, $this->db_pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
 
