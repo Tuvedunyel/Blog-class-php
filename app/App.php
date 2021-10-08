@@ -1,5 +1,7 @@
 <?php 
 
+namespace App;
+
 class App {
 
     public $title = "Mon super site";
@@ -11,6 +13,11 @@ class App {
             self::$_instance = new App();
         }
         return self::$_instance;
+    }
+
+    public static function getTable($name) {
+        $class_name = 'Table\\' . ucfirst($name) . 'Table';
+        return new $class_name();
     }
 
 }

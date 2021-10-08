@@ -1,4 +1,7 @@
 <?php 
+
+namespace App;
+
 class Config {
     private $settings = [];
 

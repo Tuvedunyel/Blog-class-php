@@ -1,5 +1,8 @@
 <?php 
 
+namespace App;
+
+use \PDO;
 
 class DataBase {
     private $db_name;
