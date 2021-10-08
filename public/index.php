@@ -2,10 +2,14 @@
 
     require '../app/Autoloader.php';
     App\Autoloader::register(); 
-
-    $config = App\Config::getInstance()->get('db_user');
-    var_dump($config);
     $app = App\App::getInstance();
-    $app->title = "Titre de test";
+
+    $posts = $app->getTable('Posts');
+
+    var_dump($posts);
+ 
+    // var_dump(App\App::getTable('Posts'));
+    // var_dump(App\App::getTable('Users'));
+    // var_dump(App\App::getTable('Categories'));
 
     
