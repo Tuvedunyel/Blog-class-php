@@ -31,7 +31,7 @@ class DataBase {
     public function query($statement, $class_name = null, $one = false) {
        $req = $this->getPDO()->query($statement);
        if($class_name === null) {
-           $req->setFetchMode(PDO::FETCH_OBJ)
+           $req->setFetchMode(PDO::FETCH_OBJ);
        } else {
            $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
        }
