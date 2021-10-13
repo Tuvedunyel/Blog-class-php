@@ -22,7 +22,7 @@ class App {
         return new $class_name($this->getDb());
     }
 
-    public function getDb() {
+    public static function getDb() {
         $config = Config::getInstance();
         if(is_null($this->db_instance)) {
             $this->db_instance = new DataBase($config->get('db_name'), $config->get('db_user'), $config->get('db_pass'), $config->get('db_host'));
